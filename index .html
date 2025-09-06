@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Shain Research Group - Rutgers University Camden</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0066a8;
+            --secondary-color: #8e003b;
+            --accent-color: #00a896;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+            background-color: #f5f5f5;
+        }
+        
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .project-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        
+        .project-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .project-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .image-placeholder {
+            width: 200px;
+            height: 200px;
+            background-color: #ddd;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .image-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .collaborators {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .collaborator-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .collaborator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .research-interest {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            margin: 2rem 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .project-content {
+                flex-direction: column;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Daniel Shain Research Group</h1>
+            <p class="subtitle">Department of Biology, Rutgers University Camden</p>
+            <p>Exploring stem cell biology and regenerative mechanisms across metazoans</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#people" class="nav-link">People</a>
+            <a href="#publications" class="nav-link">Publications</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+    
+    <section id="home">
+        <h2 class="section-title">Welcome to Our Research Group</h2>
+        <p>We are a team of biologists at Rutgers University Camden studying stem cell biology, regenerative mechanisms, and evolutionary developmental processes across diverse metazoans.</p>
+    </section>
+    
+    <section id="stemness">
+        <h2 class="section-title">Stemness Regenerative Project</h2>
+        <div class="project-content">
+            <div class="project-text">
+                <h3>Ahmed A Abdi</h3>
+                <p>Stem cell biology represents a fundamental area of developmental biology with significant implications for regenerative medicine and evolutionary studies. While mammalian stem cell systems have been extensively characterized through the identification of core transcription factors (Oct3/4, Sox2, Klf4, c-Myc) that induce pluripotency (Takahashi & Yamanaka, 2006), the evolutionary conservation of these mechanisms across metazoans remains poorly understood.</p>
+                <p>Recent studies in non-model organisms have revealed surprising divergence in stem cell regulatory networks. Research in the cnidarian Hydra has identified distinct genetic modules maintaining stemness (Hemmrich et al., 2012), while investigations in glossiphoniid leeches (Helobdella austinensis) have revealed unique sets of nucleic acid binding proteins associated with teloblast formation that show minimal similarity to known mammalian or cnidarian stemness factors (Hsiao et al., 2024).</p>
+            </div>
+            <div class="project-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-microscope"></i>
+                    <p>Stem Cell Research Image</p>
+                    <p>(Upload stemness_project.jpg)</p>
+                </div>
+                <div class="image-placeholder">
+                    <i class="fas fa-user"></i>
+                    <p>Ahmed A Abdi</p>
+                    <p>(Upload ahmed_abdi.jpg)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="collaborators" style="background-color: #f1f8ff;">
+        <h2 class="section-title">Research Collaborators</h2>
+        <div class="collaborators">
+            <div class="collaborator-card">
+                <div class="card-image">
+                    <i class="fas fa-user-circle fa-5x"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Samuel Hsiao</h3>
+                    <span class="research-interest">Stem Cell Biology</span>
+                    <p>Researching nucleic acid binding proteins associated with teloblast formation in glossiphoniid leeches.</p>
+                </div>
+            </div>
+            
+            <div class="collaborator-card">
+                <div class="card-image">
+                    <i class="fas fa-user-circle fa-5x"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Tugba Avan</h3>
+                    <span class="research-interest">Developmental Biology</span>
+                    <p>Studying cellular reprogramming during tissue regeneration in various model organisms.</p>
+                </div>
+            </div>
+            
+            <div class="collaborator-card">
+                <div class="card-image">
+                    <i class="fas fa-user-circle fa-5x"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Alexina Fiandra</h3>
+                    <span class="research-interest">Regenerative Medicine</span>
+                    <p>Exploring extracellular matrix components that maintain stem cell pluripotency.</p>
+                </div>
+            </div>
+
+            <div class="collaborator-card">
+                <div class="card-image">
+                    <i class="fas fa-user-circle fa-5x"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Ralph Saunders</h3>
+                    <span class="research-interest">Evolutionary Biology</span>
+                    <p>Investigating the evolutionary conservation of stem cell mechanisms across metazoans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="research-areas">
+        <h2 class="section-title">Research Areas</h2>
+        <div class="collaborators">
+            <div class="collaborator-card">
+                <div class="card-image" style="background-color: #e6f7ff;">
+                    <i class="fas fa-dna fa-5x" style="color: #0066a8;"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Evolution of Stemness</h3>
+                    <p>Comparative analysis of stem cell regulatory networks across metazoans to identify conserved and divergent mechanisms.</p>
+                </div>
+            </div>
+            
+            <div class="collaborator-card">
+                <div class="card-image" style="background-color: #fff0e6;">
+                    <i class="fas fa-registered fa-5x" style="color: #e66c00;"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Regenerative Biology</h3>
+                    <p>Understanding molecular pathways that enable complete tissue regeneration in non-model organisms.</p>
+                </div>
+            </div>
+            
+            <div class="collaborator-card">
+                <div class="card-image" style="background-color: #e6fff2;">
+                    <i class="fas fa-leaf fa-5x" style="color: #00a896;"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Annelid Model Systems</h3>
+                    <p>Developing glossiphoniid leeches as model organisms for studying stem cell biology and regeneration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p>Daniel Shain Research Group</p>
+                <p>Department of Biology, Rutgers University Camden</p>
+                <p>315 Penn Street, Camden, NJ 08102</p>
+                <p>Email: shainlab@rutgers.edu</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-researchgate"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2023 Daniel Shain Research Group. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
