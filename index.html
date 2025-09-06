@@ -223,6 +223,12 @@
         
         .contact-info {
             margin: 2rem 0;
+            line-height: 1.8;
+        }
+        
+        .contact-details {
+            display: inline-block;
+            text-align: left;
         }
         
         .social-links {
@@ -240,6 +246,15 @@
         
         .social-links a:hover {
             color: var(--accent-color);
+        }
+        
+        .email-link {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
@@ -403,10 +418,16 @@
         <div class="footer-content">
             <h2>Contact Us</h2>
             <div class="contact-info">
-                <p>Daniel Shain Research Group</p>
-                <p>Department of Biology, Rutgers University Camden</p>
-                <p>315 Penn Street, Camden, NJ 08102</p>
-                <p>Email: shainlab@rutgers.edu</p>
+                <div class="contact-details">
+                    <p><strong>Daniel Shain, Ph.D.</strong></p>
+                    <p>Rutgers University</p>
+                    <p>Joint Health Sciences Center, Room 303D</p>
+                    <p>201 South Broadway</p>
+                    <p>Suite 215B</p>
+                    <p>Camden, NJ 08103</p>
+                    <p>Phone: (856) 225-6144</p>
+                    <p>Email: <a href="mailto:dshain@camden.rutgers.edu" class="email-link">dshain@camden.rutgers.edu</a></p>
+                </div>
             </div>
             <div class="social-links">
                 <a href="#"><i class="fab fa-twitter"></i></a>
